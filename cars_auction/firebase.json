@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": "build",
+    "site": "carsauction-79352",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
