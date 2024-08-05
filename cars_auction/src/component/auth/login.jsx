@@ -1,6 +1,6 @@
 import React from 'react'
 import { LoginContainer, MyBtn } from '../../styled/styled';
-import {  Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, IconButton, InputAdornment, OutlinedInput, Typography } from '@mui/material';
+import {  Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, IconButton, InputAdornment, OutlinedInput, Typography } from '@mui/material';
 import { Email, Heading, Logo , Pass} from '../../assets/svg';
 import { useNavigate } from "react-router-dom";
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -19,10 +19,11 @@ const handleChange=(e)=>{
 }
 const handleClick=(e)=>{
     e.preventDefault();
-    console.log(state.email)
-    console.log(state.password)
     // Navigate to the dashboard page after successful login.
     if(state.email === 'test@gmail.com' && state.password === 'test'){
+      localStorage.setItem('auth',true);
+      localStorage.setItem('user','Ali');
+      localStorage.setItem('email',state.email);
         navigate("/dashboard");  // Replace "/dashboard" with the actual route for your dashboard page. 
     }
     
@@ -56,8 +57,8 @@ const handleClick=(e)=>{
             } id="my-input" placeholder='Enter password'  rows={1} size='small' sx={{borderRadius:"50px",width:'100%'}}/>
 </FormControl>
 <FormControl sx={{display:'flex',justifyContent:'space-between',flexDirection:'row', alignItems:'center'}}>
-<FormControlLabel control={<Checkbox defaultChecked />} label="Remember me" />
-<Typography>Forgot Password?</Typography>
+<FormControlLabel control={<Checkbox defaultChecked />} label="Remember me"   />
+<Button variant="text" sx={{textTransform:'capitalize'}}>Forgot Password?</Button>
 </FormControl>
 <MyBtn variant="contained" onClick={handleClick}>Sign in</MyBtn>
         </FormGroup>
