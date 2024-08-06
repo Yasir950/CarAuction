@@ -459,3 +459,46 @@ export const CardBlueIcon = ()=> {
     </div>
   )
 }
+export const ListIcon = ()=> {
+  return (
+    <div>
+<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.6836 5.95996H21.6836" stroke="#1F2937" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.6836 9.95996H18.6836" stroke="#1F2937" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.6836 15.96H21.6836" stroke="#1F2937" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.6836 19.96H18.6836" stroke="#1F2937" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="3.68359" y="4.95996" width="6" height="6" rx="1.2" stroke="#1F2937" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="3.68359" y="14.96" width="6" height="6" rx="1.2" stroke="#1F2937" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+    </div>
+  )
+}
+export const EditIcon = ()=> {
+  return (
+    <div>
+<svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.84863 2.62646H8.18197C4.0153 2.62646 2.34863 4.29313 2.34863 8.4598V13.4598C2.34863 17.6265 4.0153 19.2931 8.18197 19.2931H13.182C17.3486 19.2931 19.0153 17.6265 19.0153 13.4598V11.7931" stroke="#1F2937" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14.0482 3.47684L7.48154 10.0435C7.23154 10.2935 6.98154 10.7852 6.93154 11.1435L6.57321 13.6518C6.43987 14.5602 7.08154 15.1935 7.98987 15.0685L10.4982 14.7102C10.8482 14.6602 11.3399 14.4102 11.5982 14.1602L18.1649 7.5935C19.2982 6.46017 19.8315 5.1435 18.1649 3.47684C16.4982 1.81017 15.1815 2.3435 14.0482 3.47684Z" stroke="#1F2937" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.1064 4.41846C13.6648 6.41012 15.2231 7.96846 17.2231 8.53512" stroke="#1F2937" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+
+    </div>
+  )
+}
+export const TrashIcon = ()=> {
+  return (
+    <div>
+<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.9316 6.44173C16.8791 6.13923 13.8083 5.9834 10.7466 5.9834C8.93164 5.9834 7.11664 6.07507 5.30164 6.2584L3.43164 6.44173" stroke="#EC2D30" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8.47363 5.51596L8.6753 4.31512C8.82197 3.44429 8.93197 2.79346 10.4811 2.79346H12.8828C14.432 2.79346 14.5511 3.48096 14.6886 4.32429L14.8903 5.51596" stroke="#EC2D30" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.9607 9.33838L17.3648 18.5692C17.264 20.0084 17.1815 21.1267 14.624 21.1267H8.73901C6.18151 21.1267 6.09901 20.0084 5.99818 18.5692L5.40234 9.33838" stroke="#EC2D30" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.1504 16.085H13.2029" stroke="#EC2D30" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9.38965 12.4185H13.973" stroke="#EC2D30" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+
+    </div>
+  )
+}

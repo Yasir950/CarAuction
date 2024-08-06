@@ -1,4 +1,4 @@
-import { Box, Button, TextField, Typography } from '@mui/material';
+import { Box, Button, FormLabel, TextField, Typography } from '@mui/material';
 import Container from '@mui/material/Container';
 import { styled } from '@mui/system';
 
@@ -77,4 +77,35 @@ export const IconBox = styled(Box)({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+});
+export const RowBtn = styled(Button)({
+    // width: '100%',
+    borderRadius: '50px',
+    color: "#1F2937",
+    textTransform: 'capitalize',
+    fontWeight: "normal",
+    backgroundColor: '#F5F5F5',
+    "&:hover": {
+        backgroundColor: '#F15A29',
+    color: "#F9FAFB",
+    }
+});
+export const TableBtn = styled(Button)({
+    // width: '100%',
+    borderRadius: '50px',
+    color: "#1F2937",
+    textTransform: 'capitalize',
+    fontWeight: "normal",
+    backgroundColor: '#F5F5F5',
+});
+export const Label = styled(FormLabel)({
+    // width: '100%',
+   fontWeight:600,
+   fontSize: '14px',
+   color:'#1F2937'
+});
+export const Btn = styled(Button)({
+    // width: '100%',
+    borderRadius: '50px',
+    fontWeight: "normal",
 });

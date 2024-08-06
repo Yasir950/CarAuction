@@ -39,6 +39,9 @@ Coded by www.creative-tim.com
 import Dashboard from "./layouts/dashboard";
 import { AuctionsIcon, BiddingIcon, CarIcon, CustomersIcon, DashboardIcon, FinanceIcon, GateIcon, InventoryIcon, InvestorsIcon, LogoutIcon, OfficeIcon, ReportsIcon, SettingIcon, UserActIcon, UserMgmIcon } from "./assets/svg";
 import UnderConstructionComp from "./component/misc/UnderConstruction";
+import UserManagementComp from "./component/user-management";
+import DashboardComp from "./component/dashboard/dashboard";
+import OrdersOverviewComp from "./component/user-activities";
 
 const routes = [
   
@@ -48,7 +51,7 @@ const routes = [
     key: "dashboard",
     icon: <DashboardIcon/>,
     route: "/dashboard",
-    component: <Dashboard />,
+    component: <DashboardComp />,
   },
   {
     type: "collapse",
@@ -56,7 +59,7 @@ const routes = [
     key: "user-activities",
     icon: <UserMgmIcon/>,
     route: "/user-activities",
-    component: <UnderConstructionComp />,
+    component: <OrdersOverviewComp />,
   },
   {
     type: "collapse",
@@ -64,7 +67,7 @@ const routes = [
     key: "user-management",
     icon: <UserActIcon/>,
     route: "/user-management",
-    component: <UnderConstructionComp />,
+    component: <UserManagementComp />,
   },
   {
     type: "collapse",

@@ -57,7 +57,7 @@ import { FormControl, FormLabel, InputAdornment, OutlinedInput } from "@mui/mate
 import AccountMenu from "../AccountMenu";
 
 function DashboardNavbar({ absolute, light, isMini }) {
-  const [navbarType, setNavbarType] = useState();
+  const [navbarType, setNavbarType] = useState('static');
   const [controller, dispatch] = useMaterialUIController();
   const { miniSidenav, transparentNavbar, fixedNavbar, openConfigurator, darkMode } = controller;
   const [openMenu, setOpenMenu] = useState(false);

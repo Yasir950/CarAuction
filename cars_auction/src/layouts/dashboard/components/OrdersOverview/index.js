@@ -1,19 +1,4 @@
-/**
-=========================================================
-* Material Dashboard 2 React - v2.2.0
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-// @mui material components
 import Card from "@mui/material/Card";
 import Icon from "@mui/material/Icon";
 
@@ -23,28 +8,29 @@ import MDTypography from "../../../../component/MDTypography";
 
 // Material Dashboard 2 React example components
 import TimelineItem from "../../../../examples/Timeline/TimelineItem";
+import DashboardLayout from "../../../../examples/LayoutContainers/DashboardLayout";
+import DashboardNavbar from "../../../../examples/Navbars/DashboardNavbar";
+import { ListIcon, WaveHand } from "../../../../assets/svg";
+import { DashboardHeader } from "../../../../utils/Utils";
+import { Cards } from "../../../../styled/styled";
+import { Divider, Stack } from "@mui/material";
 
 function OrdersOverview() {
   return (
-    <Card sx={{ height: "100%" }}>
-      <MDBox pt={3} px={3}>
+    <DashboardLayout>
+      <DashboardNavbar />
+      <DashboardHeader msg={'User Activities'} des={'Here are the list of user activities listed.'}/>
+    <Cards sx={{ height: "100%", mt:3 }}>
+      <MDBox >
+        <Stack direction={'row'} spacing={1}>
+        <ListIcon/>
         <MDTypography variant="h6" fontWeight="medium">
-          Orders overview
+          Activity Timeline
         </MDTypography>
-        <MDBox mt={0} mb={2}>
-          <MDTypography variant="button" color="text" fontWeight="regular">
-            <MDTypography display="inline" variant="body2" verticalAlign="middle">
-              <Icon sx={{ color: ({ palette: { success } }) => success.main }}>arrow_upward</Icon>
-            </MDTypography>
-            &nbsp;
-            <MDTypography variant="button" color="text" fontWeight="medium">
-              24%
-            </MDTypography>{" "}
-            this month
-          </MDTypography>
-        </MDBox>
+        </Stack>
+       <Divider/>
       </MDBox>
-      <MDBox p={2}>
+      <MDBox >
         <TimelineItem
           color="success"
           icon="notifications"
@@ -77,7 +63,8 @@ function OrdersOverview() {
           lastItem
         />
       </MDBox>
-    </Card>
+    </Cards>
+    </DashboardLayout>
   );
 }
 
