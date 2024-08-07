@@ -1,45 +1,114 @@
-import * as React from 'react';
-import { LineChart } from '@mui/x-charts/LineChart';
-import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
-import dayjs from 'dayjs';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { Stack, TextField, Typography } from '@mui/material';
-export default function GradientCharts() {
-  const [value, setValue] = React.useState(dayjs('2024-08-07'));
-  return (
-    <>
-    <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
-<Typography sx={{fontSize:"18px", fontWeight:"700", color:"#1F2937"}}>Company Profit</Typography>
-<LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DatePicker
-       sx={{
-        "& .MuiInputLabel-root.Mui-focused": { color: "#979797" }, //styles the label
-        "& .MuiOutlinedInput-root": {
-         "&:hover > fieldset": { borderColor: "#C7C8CD" },
-         borderRadius: "50px",
-         width:"120px"
+
+import React, { Component } from "react";
+import Chart from "react-apexcharts";
+
+class GradientChart extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      options: {
+        toolbar: {
+          show: false, // Show or hide the entire toolbar
+          tools: {
+            download: false, // Hide the download icon
+            selection: false, // Hide the selection icon
+            zoom: false, // Hide the zoom icon
+            zoomin: false, // Hide the zoom in icon
+            zoomout: false, // Hide the zoom out icon
+            pan: false, // Hide the pan icon
+            reset: false // Hide the reset icon
+          }
         },
-       }}
-          views={['year', 'month']}
-          minDate={dayjs('2012-03-01')}
-          value={value}
-          onChange={(newValue) => {
-            setValue(newValue);
-          }}
-          renderInput={(params) => <TextField {...params} helperText={null} />}
-        />
-        </LocalizationProvider>
-    </Stack>
-    <LineChart
-      xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-      series={[
+        fill: {
+          type: 'gradient',
+          gradient: {
+            shadeIntensity: 0,
+            opacityFrom: 1,
+            opacityTo: 0.7,
+            stops: [0, 100]
+          }
+        },
+        legend: {
+          show: false // This will hide the legend
+        },
+        markers: {
+          size: 0 // This will remove the markers
+        },
+        annotations: {
+          yaxis: [{
+            y: 30,
+            borderColor: '#999',
+            label: {
+              show: true,
+              text: 'Support',
+              style: {
+                color: "#fff",
+                background: '#00E396'
+              }
+            }
+          }],
+          xaxis: [{
+            x: new Date('14 Nov 2012').getTime(),
+            borderColor: '#999',
+            yAxisIndex: 0,
+            label: {
+              show: true,
+              text: 'Rally',
+              style: {
+                color: "#fff",
+                background: '#775DD0'
+              }
+            }
+          }]
+        },
+        dataLabels: {
+          enabled: false
+        },
+    
+        xaxis: {
+          type: 'datetime',
+          min: new Date('01 Mar 2012').getTime(),
+          tickAmount: 6,
+        },
+        tooltip: {
+          x: {
+            format: 'dd MMM yyyy'
+          }
+        },
+        colors: ['#005AFF'],
+        chart: {
+          id: "basic-bar"
+        },
+        xaxis: {
+          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+        }
+      },
+      series: [
         {
-          data: [2, 5.5, 2, 8.5, 1.5, 5],
-          area: true,
-        },
-      ]}
-      height={250}
-    />
-    </>
-  );
+          name: "series-1",
+          data: [30, 40, 45, 50, 49, 60, 70, 91]
+        }
+      ]
+    };
+  }
+
+  render() {
+    return (
+      <div className="app">
+        <div className="row">
+          <div className="mixed-chart">
+            <Chart
+              options={this.state.options}
+              series={this.state.series}
+              type="area"
+              height={400}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
+
+export default GradientChart;

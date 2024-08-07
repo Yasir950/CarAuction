@@ -10,7 +10,7 @@ const { dark, transparent, white } = colors;
 const divider = {
   styleOverrides: {
     root: {
-      backgroundColor: transparent.main,
+      backgroundColor: '#EAECF0',
       backgroundImage: `linear-gradient(to right, ${rgba(dark.main, 0)}, ${rgba(
         dark.main,
         0.4
@@ -18,7 +18,7 @@ const divider = {
       height: pxToRem(1),
       margin: `${pxToRem(16)} 0`,
       borderBottom: "none",
-      opacity: 0.25,
+      opacity: 0.50,
     },
 
     vertical: {

@@ -8,13 +8,12 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 export const DashboardHeader=({msg,des, btn, handleClick})=>{
     const [value, setValue] = React.useState(dayjs('2024-08-07'));
-  
-   
     return(
         <Box sx={{display:"flex", flexDirection:'row', justifyContent:"space-between", alignItems:'center',mt:2}}>
         <Stack>
       <DashboardHead>
-       {msg}</DashboardHead>
+       {msg}
+       </DashboardHead>
       <Typography sx={{
 fontFamily: 'Urbanist',
 

@@ -1,12 +1,12 @@
 
-import colors from "../../../../assets/theme/base/colors";
-
-const { text } = colors;
-
 const formLabel = {
   styleOverrides: {
     root: {
-      color: text.main,
+      color: '#1F2937',
+      fontSize:"14px",
+      fontFamily:"Urbanist",
+      fontWeight:600,
+      marginBottom: '5px',
     },
   },
 };

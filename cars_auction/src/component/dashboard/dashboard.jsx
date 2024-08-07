@@ -5,7 +5,7 @@ import DashboardLayout from "../../examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "../../examples/Navbars/DashboardNavbar";
 import ComplexStatisticsCard from "../../examples/Cards/StatisticsCards/ComplexStatisticsCard";
 import { Cards, DashboardHead } from "../../styled/styled";
-import { CardIcon, WaveHand } from "../../assets/svg";
+import { CardBlueIcon, CardIcon, ClockIcon, ComingAuction, DocumentIcon, InfoCircle, WaveHand } from "../../assets/svg";
 import DataTable from "./Table";
 import BarCharts from "../../examples/Charts/BarCharts/ReportsBarChart";
 import LineCharts from "../../examples/Charts/LineCharts/ReportsLineChart";
@@ -13,7 +13,12 @@ import GradientCharts from "../../examples/Charts/LineCharts/GradientLineChart";
 import HorizontalBars from "../../examples/Charts/BarCharts/HorizontalBarChart";
 import { DashboardHeader } from "../../utils/Utils";
 import { useNavigate } from "react-router-dom";
-
+import SellIcon from '@mui/icons-material/Sell';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
+import PeopleIcon from '@mui/icons-material/People';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 const columns = [
   { field: 'id', headerName: 'ID', width: 70, hide:true  },
   { field: 'firstName', headerName: 'First name', width: 130 },
@@ -46,11 +51,10 @@ const rows = [
   { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
   { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
 ];
-const userName = localStorage.getItem('user');
 
 const Greeting = () => (
   <DashboardHead>
-    Good Morning, {userName} <WaveHand />
+    Good Morning, {localStorage.getItem('user')} <WaveHand />
   </DashboardHead>
 );
 
@@ -80,6 +84,7 @@ function DashboardComp() {
               <ComplexStatisticsCard
                 color="dark"
                 icon={<CardIcon/>}
+                bg="#FEEEEA"
                 title="Total Arrived Car"
                 count={281}
                 percentage={{
@@ -93,7 +98,8 @@ function DashboardComp() {
           <Grid item xs={12} md={6} lg={2.4}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
-                icon={<CardIcon/>}
+                icon={<CardBlueIcon/>}
+                bg={'#E5EEFF'}
                 title="Available Cars"
                 count="2,300"
                 percentage={{
@@ -108,8 +114,11 @@ function DashboardComp() {
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 color="success"
-                icon={<CardIcon/>}
-                title="Coming Auction"
+                bg={'#F2FAF6'}
+                icon={<SellIcon sx={{
+color:"#0C9D61"
+                }}/>}
+                title="Sold Cars"
                 count="34k"
                 percentage={{
                   color: "success",
@@ -123,8 +132,9 @@ function DashboardComp() {
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 color="primary"
-                icon={<CardIcon/>}
-                title="Next Coming"
+                bg={'#F1F8FF'}
+                icon={<DocumentIcon/>}
+                title="In Booking"
                 count="+91"
                 percentage={{
                   color: "success",
@@ -138,7 +148,8 @@ function DashboardComp() {
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 color="dark"
-                icon={<CardIcon/>}
+                icon={<InfoCircle/>}
+                bg={'#FEF2F2'}
                 title="Cancelled Cars"
                 count={281}
                 percentage={{
@@ -164,8 +175,9 @@ function DashboardComp() {
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 color="dark"
-                icon={<CardIcon/>}
-                title="Total Arrived Car"
+                icon={<AttachMoneyIcon sx={{color:"#F15A29"}}/>}
+                bg={'#FEEEEA'}
+                title="Revenue"
                 count={281}
                 percentage={{
                   color: "success",
@@ -178,8 +190,9 @@ function DashboardComp() {
           <Grid item xs={12} md={6} lg={2.4}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
-                icon={<CardIcon/>}
-                title="Available Cars"
+                icon={<MonetizationOnIcon sx={{color:"#0C9D61"}}/>}
+                bg={'#F2FAF6'}
+                title="Profit"
                 count="2,300"
                 percentage={{
                   color: "success",
@@ -193,8 +206,9 @@ function DashboardComp() {
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 color="success"
-                icon={<CardIcon/>}
-                title="Coming Auction"
+                icon={<PointOfSaleIcon sx={{color:"#005AFF"}}/>}
+                title="Expenses"
+                bg={"#E5EEFF"}
                 count="34k"
                 percentage={{
                   color: "success",
@@ -208,8 +222,9 @@ function DashboardComp() {
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 color="primary"
-                icon={<CardIcon/>}
-                title="Next Coming"
+                icon={<AccountBalanceIcon sx={{color:"linear-gradient(180deg, #0C9D61 0%, #8DFFD0 100%)"}}/>}
+                title="Investors"
+                bg={'#F2FAF6'}
                 count="+91"
                 percentage={{
                   color: "success",
@@ -223,10 +238,8 @@ function DashboardComp() {
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 color="dark"
-                sx={{
-    backgroundColor:'#FEEEEA' ,
-                }}
-                icon={<CardIcon/>}
+                icon={<PeopleIcon sx={{color:"#b5b374"}}/>}
+                bg={'#e0dfd2'}
                 title="Cancelled Cars"
                 count={281}
                 percentage={{

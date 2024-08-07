@@ -1,4 +1,4 @@
-import { Box, Button, FormLabel, TextField, Typography } from '@mui/material';
+import { Box, Button, FormLabel, Stack, TextField, Typography } from '@mui/material';
 import Container from '@mui/material/Container';
 import { styled } from '@mui/system';
 
@@ -12,15 +12,19 @@ export const MyInput = styled(TextField)({
     width: '540px',
 });
 export const MyBtn = styled(Button)({
-    // width: '100%',
     borderRadius: '50px',
     color: "#F9FAFB",
     textTransform: 'capitalize',
     fontWeight: "normal",
     backgroundColor: '#F15A29',
     "&:hover": {
-        backgroundColor: '#e34c1b'
-    }
+        backgroundColor: '#e34c1b',
+    color: "#F9FAFB",
+    },
+    "&:focus": {
+        backgroundColor: '#e34c1b',
+    color: "#F9FAFB",
+    },
 });
 export const LoginContainer = styled(Container)({
     display: 'flex',
@@ -32,7 +36,6 @@ export const LoginContainer = styled(Container)({
     boxShadow: '2px 4px 6px 0px #4B55630F'
 });
 export const DashboardHead = styled(Typography)({
-    fontFamily: 'Urbanist',
     fontSize: '36px',
     fontWeight: '700',
     lineHeight: '44px',
@@ -69,14 +72,13 @@ export const Graphs = styled(Box)({
         padding: "0.5rem",
         backgroundColor:'#FFFFFF',
 });
-export const IconBox = styled(Box)({
+export const IconBox = styled(Stack)({
+    borderRadius:"12px",
+    alignItems: "center",
+    justifyContent: "center",
     width: '40px',
     height: '40px',
-    background:'#FEEEEA' ,
-    borderRadius:"12px",
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+
 });
 export const RowBtn = styled(Button)({
     // width: '100%',

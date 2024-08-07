@@ -2,11 +2,11 @@ import PropTypes from "prop-types";
 import { Stack, Typography } from "@mui/material";
 import { Cards, IconBox } from "../../../../styled/styled";
 
-function ComplexStatisticsCard({ title, count, percentage, icon }) {
+function ComplexStatisticsCard({ title, count, bg, icon }) {
   return (
     <Stack>
       <Cards>
-        <IconBox>
+        <IconBox sx={{background:bg}}>
           {icon}
         </IconBox>
         <Typography sx={{ fontSize: "32px", fontWeight: "700", color: "#1F2937" }}>{count}</Typography>

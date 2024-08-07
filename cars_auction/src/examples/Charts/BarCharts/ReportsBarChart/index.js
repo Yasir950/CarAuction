@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { BarChart } from '@mui/x-charts/BarChart';
-import { Stack, TextField, Typography } from '@mui/material';
+import { Divider, Stack, TextField, Typography } from '@mui/material';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -30,15 +30,29 @@ export default function BarCharts() {
         />
         </LocalizationProvider>
     </Stack>
+  <Divider/>
     <BarChart
+     grid={{  horizontal: true }}
+     bottomAxis={{
+      disableLine: true,
+      disableTicks: true,
+    }}
+    leftAxis={{
+      disableLine: true,
+      disableTicks: true,
+    }}
+    borderRadius={9}
       series={[
-        { data: [35, 44, 24, 34] },
-        { data: [51, 6, 49, 30] },
-        { data: [15, 25, 30, 50] },
-        { data: [60, 50, 15, 25] },
+        { data: [35, 44, 24, 34,35, 44, 24, 34,35, 44, 24, 34] },
+  
       ]}
       height={250}
-      xAxis={[{ data: ['Q1', 'Q2', 'Q3', 'Q4'], scaleType: 'band' }]}
+      
+      xAxis={[{ data: ['January', 'February', 'March', 'April','May', 'June', 'July', 'August','September','October','November', 'December'], scaleType: 'band',categoryGapRatio: 0.8 , colorMap: {
+        type: 'piecewise',
+        thresholds: [new Date(2021, 1, 1), new Date(2023, 1, 1)],
+        colors: ['#FE9B0E'],
+      },}]}
       margin={{ top: 10, bottom: 30, left: 40, right: 10 }}
     />
     </>

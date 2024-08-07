@@ -20,13 +20,14 @@ const formControlLabel = {
       display: "inline-block",
       fontSize: size.sm,
       fontWeight: fontWeightBold,
-      color: dark.main,
+      color: '#1F2937',
       lineHeight: 1,
       transform: `translateY(${pxToRem(1)})`,
       marginLeft: pxToRem(4),
+      fontFamily:'Urbanist',
 
       "&.Mui-disabled": {
-        color: dark.main,
+        color: '#1F2937',
       },
     },
   },

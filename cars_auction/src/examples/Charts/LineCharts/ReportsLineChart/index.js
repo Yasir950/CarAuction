@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { LineChart } from '@mui/x-charts/LineChart';
-import { Stack, TextField, Typography } from '@mui/material';
+import { Divider, Stack, TextField, Typography } from '@mui/material';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -31,16 +31,28 @@ export default function LineCharts() {
         />
         </LocalizationProvider>
     </Stack>
+    <Divider/>
     <LineChart
-      xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+       xAxis={[{ data: ['January', 'February', 'March', 'April','May', 'June', 'July', 'August','September','October','November', 'December'], scaleType: 'band',categoryGapRatio: 0.8 ,}]}
       series={[
         {
-          data: [2, 5.5, 2, 8.5, 1.5, 5],
+          data: [2, 3, 5.5, 8.5, 1.5, 5, 1, 4, 3, 8],
+           color:"#005AFF",
+           showMark:false
         },
       ]}
       height={250}
       margin={{ left: 30, right: 30, top: 30, bottom: 30 }}
-      grid={{ vertical: true, horizontal: true }}
+      grid={{  horizontal: true }}
+      
+      bottomAxis={{
+       disableLine: true,
+       disableTicks: true,
+     }}
+     leftAxis={{
+       disableLine: true,
+       disableTicks: true,
+     }}
     />
     </>
   );
