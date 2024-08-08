@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { BarChart } from '@mui/x-charts/BarChart';
-
+import { Divider, FormControl, MenuItem, Select, Stack, Typography } from '@mui/material';
 export const dataset = [
   {
     london: 59,
@@ -8,6 +8,7 @@ export const dataset = [
     newYork: 86,
     seoul: 21,
     month: '1990',
+    color:"#F9BDA9"
   },
   {
     london: 50,
@@ -15,6 +16,7 @@ export const dataset = [
     newYork: 78,
     seoul: 28,
     month: '1995',
+    color:"#99BDFF"
   },
   {
     london: 47,
@@ -22,6 +24,8 @@ export const dataset = [
     newYork: 106,
     seoul: 41,
     month: '2000',
+    color:"#99BDFF"
+
   },
   {
     london: 54,
@@ -29,6 +33,8 @@ export const dataset = [
     newYork: 92,
     seoul: 73,
     month: '2005',
+    color:"#F9BDA9"
+
   },
   {
     london: 57,
@@ -36,6 +42,8 @@ export const dataset = [
     newYork: 92,
     seoul: 99,
     month: '2010',
+    color:"#99BDFF"
+
   },
   {
     london: 60,
@@ -43,67 +51,53 @@ export const dataset = [
     newYork: 103,
     seoul: 144,
     month: '2015',
-  },
-  {
-    london: 59,
-    paris: 60,
-    newYork: 105,
-    seoul: 319,
-    month: '2020',
-  },
-  {
-    london: 65,
-    paris: 60,
-    newYork: 106,
-    seoul: 249,
-    month: '2021',
-  },
-  {
-    london: 51,
-    paris: 51,
-    newYork: 95,
-    seoul: 131,
-    month: '2022',
-  },
-  {
-    london: 60,
-    paris: 65,
-    newYork: 97,
-    seoul: 55,
-    month: '2023',
-  },
-  {
-    london: 67,
-    paris: 64,
-    newYork: 76,
-    seoul: 48,
-    month: '2024',
-  },
-  {
-    london: 61,
-    paris: 70,
-    newYork: 103,
-    seoul: 25,
-    month: '2025',
+    color:"#F9BDA9"
+
   },
 ];
-
-
-const chartSetting = {
- 
-  height: 290,
-};
-
-const valueFormatter = (value) => `${value}mm`;
-
+const barColors = dataset.map((val) => {
+  return val.color;
+ });
 export default function HorizontalBars() {
   return (
+    <>
+    <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
+<Typography sx={{fontSize:"18px", fontWeight:"700", color:"#1F2937"}}>Cars Used</Typography>
+<FormControl  sx={{mb:1, width:"15%"}}>
+  <Select
+    labelId="demo-simple-select-label"
+    id="demo-simple-select"  
+    placeholder="Select user role"
+    rows={1} size='small' sx={{borderRadius:"50px",width:'100%', height:"35px"}}
+  >
+    <MenuItem value={10}>Ali</MenuItem>
+    <MenuItem value={20}>Hassan</MenuItem>
+    <MenuItem value={30}>Hussain</MenuItem>
+  </Select>
+</FormControl>
+    </Stack>
+  <Divider/>
     <BarChart
+    height={270}
+    grid={{  horizontal: true }}
+    bottomAxis={{
+     disableLine: true,
+     disableTicks: true,
+   }}
+   leftAxis={{
+     disableLine: true,
+     disableTicks: true,
+   }}
+   borderRadius={9}
       dataset={dataset}
-      yAxis={[{ scaleType: 'band', dataKey: 'month' }]}
-      series={[{ dataKey: 'seoul', label: 'Yearly Sales', valueFormatter }]}
+      slotProps={{ legend: { hidden: false } }}
+      yAxis={[{ scaleType: 'band', dataKey: 'month' ,  colorMap: {
+        type: "ordinal",
+        colors: barColors,
+      },}]}
+      series={[{ data: [35, 44, 24, 34,35, 44, 24, 34,35, 44, 24, 34] }]}
       layout="horizontal"
-      {...chartSetting}
     />
+    </>
   );
 }

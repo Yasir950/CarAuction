@@ -1,141 +1,79 @@
-/**
-=========================================================
-* Material Dashboard 2  React - v2.2.0
-=========================================================
+import { BarChart } from "@mui/x-charts";
+import * as React from 'react';
+import { Divider, Stack, TextField, Typography } from '@mui/material';
+import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
+import dayjs from 'dayjs';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
+export default function ChartPerBarColoring() {
+  const [value, setValue] = React.useState(dayjs('2024-08-07'));
+  const tableData = {
+    1: { name: "Total", value: 10 , color:"#F15A29"},
+    2: { name: "Sold", value: 11 , color:"#0C9D61"},
+    3: { name: "Remain", value: 13, color:"#EB6F70" },
+    4: { name: "Auction", value: 12 , color:"#6BC497"},
+    5: { name: "Next Auc", value: 9 , color:"#47B881"},
+    6: { name: "Cancel", value: 10, color:"#EC2D30" },
+    7: { name: "Booking", value: 7 , color:"#3B82F6"},
+  }
+  const namesArray = Object.values(tableData).map((item) => item.name);
+  const valuesArray = Object.values(tableData).map((item) => item.value);
+  const colorsArray = Object.values(tableData).map((item) => item.color);
+  const barColors = colorsArray.map((val) => {
+   return val;
+  });
 
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-import { useMemo } from "react";
-
-// porp-types is a library for typechecking of props
-import PropTypes from "prop-types";
-
-// react-chartjs-2 components
-import { Bar } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
-
-// @mui material components
-import Card from "@mui/material/Card";
-import Icon from "@mui/material/Icon";
-
-// Material Dashboard 2 React components
-import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
-
-// VerticalBarChart configurations
-import configs from "examples/Charts/BarCharts/VerticalBarChart/configs";
-
-// Material Dashboard 2 React base styles
-import colors from "assets/theme/base/colors";
-
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
-
-function VerticalBarChart({ icon, title, description, height, chart }) {
-  const chartDatasets = chart.datasets
-    ? chart.datasets.map((dataset) => ({
-        ...dataset,
-        weight: 5,
-        borderWidth: 0,
-        borderRadius: 4,
-        backgroundColor: colors[dataset.color]
-          ? colors[dataset.color || "dark"].main
-          : colors.dark.main,
-        fill: false,
-        maxBarThickness: 35,
-      }))
-    : [];
-
-  const { data, options } = configs(chart.labels || [], chartDatasets);
-
-  const renderChart = (
-    <MDBox py={2} pr={2} pl={icon.component ? 1 : 2}>
-      {title || description ? (
-        <MDBox display="flex" px={description ? 1 : 0} pt={description ? 1 : 0}>
-          {icon.component && (
-            <MDBox
-              width="4rem"
-              height="4rem"
-              bgColor={icon.color || "dark"}
-              variant="gradient"
-              coloredShadow={icon.color || "dark"}
-              borderRadius="xl"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              color="white"
-              mt={-5}
-              mr={2}
-            >
-              <Icon fontSize="medium">{icon.component}</Icon>
-            </MDBox>
-          )}
-          <MDBox mt={icon.component ? -2 : 0}>
-            {title && <MDTypography variant="h6">{title}</MDTypography>}
-            <MDBox mb={2}>
-              <MDTypography component="div" variant="button" color="text">
-                {description}
-              </MDTypography>
-            </MDBox>
-          </MDBox>
-        </MDBox>
-      ) : null}
-      {useMemo(
-        () => (
-          <MDBox height={height}>
-            <Bar data={data} options={options} redraw />
-          </MDBox>
-        ),
-        [chart, height]
-      )}
-    </MDBox>
+  return (
+    <>
+    <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
+<Typography sx={{fontSize:"18px", fontWeight:"700", color:"#1F2937"}}>Total Sales</Typography>
+<LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DatePicker
+       sx={{
+        "& .MuiInputLabel-root.Mui-focused": { color: "#979797" }, //styles the label
+        "& .MuiOutlinedInput-root": {
+         "&:hover > fieldset": { borderColor: "#C7C8CD" },
+         borderRadius: "50px",
+         width:"120px"
+        },
+       }}
+          views={['year', 'month']}
+          minDate={dayjs('2012-03-01')}
+          value={value}
+          onChange={(newValue) => {
+            setValue(newValue);
+          }}
+          renderInput={(params) => <TextField {...params} helperText={null} />}
+        />
+        </LocalizationProvider>
+    </Stack>
+  <Divider/>
+        <BarChart
+          height={250}
+          series={[{ data: valuesArray, id: "cId" }]}
+          grid={{  horizontal: true }}
+          bottomAxis={{
+           disableLine: true,
+           disableTicks: true,
+         }}
+         leftAxis={{
+           disableLine: true,
+           disableTicks: true,
+         }}
+         borderRadius={9}
+          xAxis={[
+            {
+              data: namesArray,
+              categoryGapRatio: 0.8 ,
+              scaleType: "band",
+              colorMap: {
+                type: "ordinal",
+                values: namesArray,
+                colors: barColors,
+              },
+            },
+          ]}
+        />
+    </>
   );
-
-  return title || description ? <Card>{renderChart}</Card> : renderChart;
 }
-
-// Setting default values for the props of VerticalBarChart
-VerticalBarChart.defaultProps = {
-  icon: { color: "info", component: "" },
-  title: "",
-  description: "",
-  height: "19.125rem",
-};
-
-// Typechecking props for the VerticalBarChart
-VerticalBarChart.propTypes = {
-  icon: PropTypes.shape({
-    color: PropTypes.oneOf([
-      "primary",
-      "secondary",
-      "info",
-      "success",
-      "warning",
-      "error",
-      "light",
-      "dark",
-    ]),
-    component: PropTypes.node,
-  }),
-  title: PropTypes.string,
-  description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  chart: PropTypes.objectOf(PropTypes.array).isRequired,
-};
-
-export default VerticalBarChart;

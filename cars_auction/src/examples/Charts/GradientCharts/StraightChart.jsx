@@ -5,7 +5,7 @@ import { Divider, Stack, TextField, Typography } from '@mui/material';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-class GradientChart extends Component {
+class StraightChart extends Component {
   
   constructor(props) {
     super(props);
@@ -14,14 +14,14 @@ class GradientChart extends Component {
       value:'2024-08-07',
       options: {
         stroke: {
-          width: 0
+          width: 2
           },
         fill: {
           type: 'gradient',
           gradient: {
             shadeIntensity: 0,
-            opacityFrom: 1,
-            opacityTo: 0.7,
+            opacityFrom: 0.8,
+            opacityTo: 0.3,
             stops: [0, 100]
           }
         },
@@ -34,12 +34,13 @@ class GradientChart extends Component {
             format: 'dd MMM yyyy'
           }
         },
-        colors: ['#005AFF'],
+        colors: ['#FFA500'],
        
         xaxis: {
           categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
         },
         chart: {
+            stacked: true,
           toolbar: {
             show: false,
           },
@@ -48,7 +49,7 @@ class GradientChart extends Component {
       series: [
         {
           name: "series-1",
-          data: [50, 25, 45, 60, 49, 100, 70, 91]
+          data: [25, 30, 35, 34, 45, 50, 55, 100]
         }
       ]
     };
@@ -88,4 +89,4 @@ class GradientChart extends Component {
   }
 }
 
-export default GradientChart;
+export default StraightChart;

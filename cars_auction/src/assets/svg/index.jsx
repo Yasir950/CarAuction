@@ -545,3 +545,18 @@ export const DocumentIcon = ()=> {
     </div>
   )
 }
+export const TimelineIcon = ()=> {
+  return (
+    <div>
+<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.6836 5.95996H21.6836" stroke="#1F2937" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.6836 9.95996H18.6836" stroke="#1F2937" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.6836 15.96H21.6836" stroke="#1F2937" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.6836 19.96H18.6836" stroke="#1F2937" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="3.68359" y="4.95996" width="6" height="6" rx="1.2" stroke="#1F2937" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="3.68359" y="14.96" width="6" height="6" rx="1.2" stroke="#1F2937" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+    </div>
+  )
+}

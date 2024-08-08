@@ -1,8 +1,14 @@
 import * as React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid, GridToolbarContainer, GridToolbarExport } from '@mui/x-data-grid';
 
 
-
+function CustomToolbar() {
+  return (
+    <GridToolbarContainer>
+      <GridToolbarExport />
+    </GridToolbarContainer>
+  );
+}
 export default function DataTable({height,rowData,colData}) {
   return (
     <div style={{ height: height, width: '100%' }}>
@@ -21,6 +27,9 @@ export default function DataTable({height,rowData,colData}) {
               pageSize: 15,
             },
           },
+        }}
+        slots={{
+          toolbar: CustomToolbar,
         }}
         pageSizeOptions={[10, 20]}
       />

@@ -51,7 +51,7 @@ export default function BarCharts() {
       xAxis={[{ data: ['January', 'February', 'March', 'April','May', 'June', 'July', 'August','September','October','November', 'December'], scaleType: 'band',categoryGapRatio: 0.8 , colorMap: {
         type: 'piecewise',
         thresholds: [new Date(2021, 1, 1), new Date(2023, 1, 1)],
-        colors: ['#FE9B0E'],
+        colors: ['#FE9B0E','#000'],
       },}]}
       margin={{ top: 10, bottom: 30, left: 40, right: 10 }}
     />

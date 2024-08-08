@@ -40,7 +40,9 @@ fontFamily: 'Urbanist',
           renderInput={(params) => <TextField {...params} helperText={null} />}
         />
         </LocalizationProvider>
+        {btn && 
         <MyBtn onClick={handleClick} variant="contained" sx={{margin:1}}><AddCircleIcon/>{btn}</MyBtn>
+        }
         </Grid>
       </Box>
     )

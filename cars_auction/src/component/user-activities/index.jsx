@@ -11,16 +11,17 @@ import TimelineItem from "../../examples/Timeline/TimelineItem";
 import DashboardLayout from "../../examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "../../examples/Navbars/DashboardNavbar";
 import { DashboardHeader } from "../../utils/Utils";
+import { TimelineIcon } from "../../assets/svg";
 
 function OrdersOverviewComp() {
   return (
     <DashboardLayout>
     <DashboardNavbar />
-    <DashboardHeader msg={'User Activities'} des={'Here are the list of user activities listed.'}/>
+    <DashboardHeader msg={'User Activities'} des={'Here are the list of user activities listed.'} />
     <Card sx={{ height: "100%" , mt:3}}>
       <MDBox pt={3} px={3}>
         <MDTypography variant="h6" fontWeight="medium">
-          Orders overview
+     <TimelineIcon/>    Activity Timeline
         </MDTypography>
         <MDBox mt={0} mb={2}>
           <MDTypography variant="button" color="text" fontWeight="regular">
